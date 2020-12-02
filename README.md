@@ -7,9 +7,9 @@
  https://github.com/HRR49Team8/amazonReviews
 
 
- CRUD endpoints:
+## CRUD endpoints:
  | Action | Method | URL           |
- | --------------------------------|
+ | -------| -------| --------------|
  | Create | POST   | '/api/product'|
  | Read   | GET    | '/api/product'|
  | Update | PUT    | '/api/product'|
