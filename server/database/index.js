@@ -3,7 +3,7 @@ const { client } = require('./config.js');
 const getImages = (callback, id) => {
   const query = {
     name: 'tech id',
-    text: 'SELECT * FROM carousel WHERE id = $1',
+    text: 'SELECT * FROM imagess WHERE id = $1',
     values: [id],
   };
   client.query(query, (err, response) => {
@@ -16,20 +16,25 @@ const getImages = (callback, id) => {
   });
 };
 
-const deleteImages = (callback) => {
-  const sql = 'DELETE * FROM carousel';
-  client.query(sql, (err, response) => {
+const deleteImages = (callback, id) => {
+  const query = {
+    name: 'id',
+    text: 'DELETE FROM imagess WHERE id = $1',
+    values: [id],
+  };
+  client.query(query, (err, response) => {
     if (err) {
       console.error(err);
-      return callback(err, null);
+      callback(err, null);
+      return;
     }
     console.log('deleting images from database');
-    return callback(null, response);
+    callback(null, response);
   });
 };
 
 const insert = async () => {
-  const sql = 'INSERT INTO carousel(productName) VALUES ($1)';
+  const sql = 'INSERT INTO imagess(images) VALUES (ARRAY [$1])';
   const toInsert = ['random chicken'];
   let response;
   try {
@@ -41,8 +46,27 @@ const insert = async () => {
   return response;
 };
 
+const update = (callback, id) => {
+  const query = {
+    name: 'right',
+    text: "UPDATE imagess SET images = ARRAY['what once was is no longer'] WHERE id = $1",
+    values: [id],
+  };
+
+  client.query(query, (err, response) => {
+    if (err) {
+      console.error(err);
+      callback(err, null);
+      return;
+    }
+    console.log('updating item ');
+    callback(null, response);
+  });
+};
+
 module.exports = {
   getImages,
   deleteImages,
   insert,
+  update,
 };
