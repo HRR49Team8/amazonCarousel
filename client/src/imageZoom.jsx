@@ -1,13 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import styled from 'styled-components';
-import {ZoomModal} from './styleFile.jsx'
-
+import { ZoomModal } from './styleFile.jsx'
 
 class ImageZoom extends React.Component {
   constructor(props){
-    super(props)
-
+    super(props);
  }
 
   render() {
