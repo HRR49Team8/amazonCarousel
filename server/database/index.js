@@ -3,7 +3,7 @@ const { client } = require('./config.js');
 const getImages = (callback, id) => {
   const query = {
     name: 'tech id',
-    text: 'SELECT * FROM imagess WHERE id = $1',
+    text: 'SELECT i.*, c.productName FROM imagess i INNER JOIN carousel c ON c.id = i.id WHERE c.id = $1',
     values: [id],
   };
   client.query(query, (err, response) => {
