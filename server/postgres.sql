@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS imagess (
 
 \COPY imagess(images) FROM '/Users/tylerbailey/Desktop/SDC/amazonCarousel/zains-service/server/csv/images.csv' DELIMITER '$' CSV HEADER;
 
-CREATE INDEX ON carousel(productName);
+CREATE INDEX ON imagess(images);
 
 -- run this command:
 -- psql -U postgres -f server/postgres.sql
