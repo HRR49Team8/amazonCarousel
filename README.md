@@ -7,6 +7,9 @@
  3. https://github.com/HRR49Team8/amazonReviews
 
 
+## Other:
+  1. Start webpack build: npm run build
+  2. Start server: npm run start
 
 
 
