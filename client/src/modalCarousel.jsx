@@ -7,7 +7,7 @@ class ModalCarousel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // productName: this.props.productName,
+      productName: this.props.productName,
       images: this.props.images,
       activeImage: this.props.activeImage,
     };
@@ -28,7 +28,7 @@ class ModalCarousel extends React.Component {
         </HeaderStyle>
         <HeaderLine> </HeaderLine>
         <ModalProductNameStyle>
-          {/* {this.state.productName} */}
+          {this.state.productName}
         </ModalProductNameStyle>
         <ModalActiveImageStyle>
           <img src={this.state.activeImage.substring(2)}  onClick={this.activeOnClick} width="750" height="600" />

@@ -12,7 +12,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // productName: '',
+      productName: '',
       images: [],
       activeImage: '',
       showModal: false,
@@ -38,11 +38,8 @@ class App extends React.Component {
     axios.get(`/api/product/${val}`)
       .then(response => {
         console.log('response from get call is ', response);
-        // for(var i = 0; i < response.data.length; i++) {
-        //   response.data[0].images[i] = response.data[0].images[i].substring(2);
-        // }
         this.setState({
-        // productName: response.data[0].productName,
+          productName: response.data[0].productname,
           images: response.data[0].images,
           activeImage: response.data[0].images[0],
         });
@@ -84,9 +81,6 @@ class App extends React.Component {
   }
 
   render() {
-    // for (var i = 0; i < this.state.images.length; i++) {
-    //   this.state.images[i] = this.state.images[i].substring(2);
-    // }
     return (
       <div>
         <Container>
@@ -94,7 +88,7 @@ class App extends React.Component {
           < ActiveImage activeImage={this.state.activeImage} toggleModal={this.toggleModal} toggleZoomOn= {this.toggleZoomOn} toggleZoomOff= {this.toggleZoomOff} />
           <ImageZoom showZoom={this.state.showZoom} zoomParameters={this.state.zoomParameters}/>
         </Container>
-        <Modal showModal={this.state.showModal} toggleModal={this.toggleModal} images={this.state.images} activeImage={this.state.activeImage}  changeActive={this.changeActive}/>
+        <Modal showModal={this.state.showModal} toggleModal={this.toggleModal} images={this.state.images} activeImage={this.state.activeImage} productName={this.state.productName} changeActive={this.changeActive}/>
       </div>
     );
   }

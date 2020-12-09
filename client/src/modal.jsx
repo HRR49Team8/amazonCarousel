@@ -20,7 +20,7 @@ class Modal extends React.Component {
       <>
         <BackgroundStyle onClick={this.clickHandler}></BackgroundStyle>
         <ModalStyle>
-        <ModalCarousel activeImage={this.props.activeImage}  images={this.props.images} changeActiveModal={this.changeActiveModal}/>
+        <ModalCarousel productName={this.props.productName} activeImage={this.props.activeImage}  images={this.props.images} changeActiveModal={this.changeActiveModal}/>
         </ModalStyle>
       </>, document.getElementById('portal'));
     }
