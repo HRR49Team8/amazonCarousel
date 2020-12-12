@@ -1,0 +1,30 @@
+# config:
+#   target: "http://localhost:3001"
+#   phases:
+#     - duration: 60
+#       arrivalRate: 100
+# scenarios:
+#   - flow:
+#     - loop:
+#       - get:
+#           url: "/api/product/9999999"
+#       count: 100
+
+config:
+  target: "http://localhost:3001"
+  phases:
+    - duration: 60
+      arrivalRate: 100
+scenarios:
+  - flow:
+    - post:
+        url: '/api/image/'
+        json:
+          images: '0:https://zainfecservice.s3.amazonaws.com/Random+Images/8.jpg'
+          url: '/api/productName/'
+          json:
+            productName: 'depends adult undergarments'
+    - loop:
+      - get:
+          url: "/api/product/9999999"
+      count: 100

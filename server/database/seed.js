@@ -1,7 +1,5 @@
 const faker = require('faker');
 const fs = require('fs');
-// const connections = require('./index.js');
-// const config = require('./config.js');
 
 const csvdir = './server/csv/';
 
@@ -26,8 +24,7 @@ function getProdName() {
 
 console.log(`Sending ${lines} images to ${csvdir}images.csv`);
 const writeStream = fs.createWriteStream(`${csvdir}carousel.csv`);
-
-const header = 'Product Name';
+const header = 'Product Name \n';
 
 writeStream.write(header, 'utf-8');
 (async () => {
@@ -39,9 +36,7 @@ writeStream.write(header, 'utf-8');
   writeStream.close();
 
   const imageStream = fs.createWriteStream(`${csvdir}images.csv`);
-
   const imgheader = 'Images \n';
-
   imageStream.write(imgheader, 'utf-8');
 
   (async () => {
