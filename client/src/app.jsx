@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import styled from "styled-components";
 import axios from 'axios';
-import Carousel from './carousel.jsx'
-import ActiveImage from './activeImage.jsx'
-import Modal from './modal.jsx'
-import ImageZoom from './imageZoom.jsx'
-import {Container} from './styleFile.jsx'
+import Carousel from './carousel.jsx';
+import ActiveImage from './activeImage.jsx';
+import Modal from './modal.jsx';
+import ImageZoom from './imageZoom.jsx';
+import {Container} from './styleFile.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -35,6 +35,8 @@ class App extends React.Component {
   }
 
   getImages(val) {
+    var val = Math.floor(Math.random() * 10000000);
+
     axios.get(`/api/product/${val}`)
       .then(response => {
         console.log('response from get call is ', response);
