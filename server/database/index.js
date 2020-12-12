@@ -121,7 +121,7 @@ const update = (callback, id) => {
 module.exports = {
   getImages,
   deleteImages,
-  insert,
+  // insert,
   update,
   insertProd,
   insertImage,
