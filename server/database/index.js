@@ -80,22 +80,24 @@ const deleteImages = (callback, id) => {
 //   }
 //   return response;
 // };
-const insert = (callback, id) => {
-  const query = {
-    name: 'post',
-    text: 'INSERT INTO joined(images, productName) VALUES (ARRAY[$1], $1) returning *',
-    values: [id],
-  };
-  client.query(query, (err, response) => {
-    if (err) {
-      console.error(err);
-      callback(err, null);
-      return;
-    }
-    console.log('adding item ');
-    callback(null, response);
-  });
-};
+
+////////// to insert into joined table //////////
+// const insert = (callback, id) => {
+//   const query = {
+//     name: 'post',
+//     text: 'INSERT INTO joined(images, productName) VALUES (ARRAY[$1], $1) returning *',
+//     values: [id],
+//   };
+//   client.query(query, (err, response) => {
+//     if (err) {
+//       console.error(err);
+//       callback(err, null);
+//       return;
+//     }
+//     console.log('adding item ');
+//     callback(null, response);
+//   });
+// };
 
 const update = (callback, id) => {
   const query = {
