@@ -35,7 +35,7 @@ class App extends React.Component {
   }
 
   getImages(val) {
-    var val = Math.floor(Math.random() * (100000) + 9000000);
+    var val = Math.floor(Math.random() * (10000000));
     axios.get(`/api/product/${val}`)
       .then(response => {
         console.log('response from get call is ', response);
