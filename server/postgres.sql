@@ -30,24 +30,11 @@ CREATE TABLE IF NOT EXISTS carousel (
   id SERIAL PRIMARY KEY NOT NULL,
   productName text
 );
--- CREATE TABLE IF NOT EXISTS carousel (
---   id SERIAL,
---    PRIMARY KEY(id),
---   productName text
--- );
 
 CREATE TABLE IF NOT EXISTS imagess (
   id SERIAL PRIMARY KEY NOT NULL,
   images text[]
 );
--- CREATE TABLE IF NOT EXISTS imagess (
---   productID INT NOT NULL,
---   id SERIAL,
---   PRIMARY KEY (id),
---   images text[],
---   FOREIGN KEY (productID)
---     REFERENCES carousel(id)
--- );
 
 \COPY carousel(productName) FROM '/Users/tylerbailey/Desktop/SDC/amazonCarousel/zains-service/server/csv/carousel.csv' DELIMITER ',' CSV HEADER;
 
